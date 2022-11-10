@@ -1,0 +1,445 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  height: 200vh;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  background-color: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer .code button, .hero .embed .reload button {
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+
+.navbar {
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.35), transparent);
+  left: 0;
+  right: 0;
+  padding: 0 4% 0 2%;
+}
+.navbar .logo {
+  width: 150px;
+  height: 63px;
+  scale: 75%;
+  background-size: contain;
+  background-image: url("./img/Netflix_Logo_RGB.png");
+}
+.navbar .nav > ul {
+  display: flex;
+  list-style: none;
+}
+.navbar .nav li {
+  margin-left: 18px;
+}
+.navbar .controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.navbar .controls > div {
+  margin-right: 20px;
+}
+.navbar .controls > div:last-child {
+  margin-right: 0;
+}
+.navbar .controls .profile {
+  display: flex;
+  align-items: center;
+}
+.navbar .controls .profile .picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-image: url("./img/profile-image.png");
+}
+.navbar .controls .profile .arrow {
+  margin-left: 10px;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #fff transparent;
+  width: 0;
+  height: 0;
+}
+.navbar .controls .profile .arrow:hover {
+  cursor: pointer;
+  rotate: 180deg;
+  transition: rotate 400ms ease-in-out;
+}
+
+.shade, .video {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.video video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.shade {
+  z-index: -1;
+  background: linear-gradient(rgba(20, 20, 20, 0.35) 50%, rgb(20, 20, 20));
+}
+
+.hero {
+  padding: 0 4%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 5vh;
+}
+.hero .title {
+  margin-bottom: 10px;
+}
+.hero .title img {
+  width: 30%;
+  height: auto;
+}
+.hero .ranking {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero .ranking svg {
+  margin-right: 10px;
+}
+.hero .synopsis {
+  font-size: 18px;
+  width: 40%;
+  margin-bottom: 20px;
+}
+.hero .synopsis p {
+  font-weight: 100;
+}
+.hero .controls {
+  display: flex;
+  margin-bottom: 20px;
+}
+.hero .controls > button {
+  display: flex;
+  align-items: center;
+  padding: 0.7em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 18px;
+}
+.hero .controls > button.play {
+  color: black;
+  background-color: white;
+}
+.hero .controls > button.play:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.hero .controls > button.info {
+  margin-left: 15px;
+  color: white;
+  background-color: rgba(109, 109, 110, 0.7);
+}
+.hero .controls > button.info:hover {
+  background-color: rgba(109, 109, 110, 0.4);
+}
+.hero .controls > button > svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.hero .cast {
+  width: 70%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  min-height: 15vh;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  align-items: center;
+}
+.hero .cast > div {
+  padding: 0 10px;
+  text-align: center;
+}
+.hero .cast svg {
+  margin-bottom: 10px;
+}
+.hero .cast .left img {
+  margin-top: 10px;
+  max-width: 70%;
+}
+.hero .cast .center {
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+.hero .embed {
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  bottom: 35%;
+  width: 170px;
+  max-height: 50px;
+  display: flex;
+  align-items: flex-start;
+}
+.hero .embed .reload button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.hero .embed .reload button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.hero .embed .maturity {
+  flex-grow: 1;
+  margin-left: 20px;
+  border-left: 3px solid white;
+  padding: 3px 0 3px 15px;
+  background-color: rgba(51, 51, 51, 0.6);
+}
+.hero .embed .maturity > svg {
+  vertical-align: middle;
+}
+
+.daily-picks {
+  height: 20vh;
+  left: 0;
+  right: 0;
+  position: relative;
+  margin-bottom: 65px;
+}
+.daily-picks .section .slider .roll-right, .section .slider .daily-picks .roll-right, .daily-picks .section .slider .roll-left, .section .slider .daily-picks .roll-left, .daily-picks .roll-right, .daily-picks .roll-left {
+  z-index: 2;
+  position: absolute;
+  width: 4%;
+  height: 20vh;
+  margin: 2vw 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.daily-picks .roll-right:hover, .daily-picks .roll-left:hover {
+  background-color: rgba(20, 20, 20, 0.7);
+}
+.daily-picks .section .slider .roll-right > button, .section .slider .daily-picks .roll-right > button, .daily-picks .section .slider .roll-left > button, .section .slider .daily-picks .roll-left > button, .daily-picks .roll-right > button, .daily-picks .roll-left > button {
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+.daily-picks .roll-left {
+  left: 0;
+}
+.daily-picks .roll-right {
+  right: 0;
+}
+.daily-picks .content {
+  width: 100%;
+  display: flex;
+  margin: -2.5vw 0;
+  padding: 2.5vw 4%;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+.daily-picks .content .pick {
+  display: flex;
+  width: 20%;
+  height: 20vh;
+  margin-right: 20px;
+}
+.daily-picks .content .pick .thumb img {
+  height: 18vh;
+  border: 3px solid transparent;
+  border-radius: 7px;
+}
+.daily-picks .content .pick .thumb img:hover {
+  border: 3px solid white;
+  border-radius: 7px;
+  box-shadow: 0 0 2.5vw 1.04166667vw rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.daily-picks .content .pick .controls {
+  display: flex;
+  margin-top: 10px;
+}
+.daily-picks .content .pick .controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+.daily-picks .content .pick .controls button svg {
+  scale: 90%;
+}
+.daily-picks .content .pick .controls .play {
+  background-color: white;
+  color: black;
+}
+.daily-picks .content .pick .controls .play:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.daily-picks .content .pick .controls .info {
+  margin-left: 10px;
+  background-color: transparent;
+  color: white;
+  border: 1.25px solid white;
+}
+.daily-picks .content .pick .controls .info:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.daily-picks .content .pick .left {
+  margin-right: 15px;
+}
+.daily-picks .content .pick .right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+.daily-picks .content .pick .right .text {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+.section .title {
+  padding: 0 4%;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.section .slider {
+  position: relative;
+}
+.section .slider .roll-right, .section .slider .roll-left {
+  z-index: 2;
+  position: absolute;
+  width: 4%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.section .slider .roll-right:hover, .section .slider .roll-left:hover {
+  background-color: rgba(20, 20, 20, 0.7);
+}
+.section .slider .roll-right button, .section .slider .roll-left button {
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+.section .slider .roll-left {
+  left: 0;
+}
+.section .slider .roll-right {
+  right: 0;
+}
+.section .slider .content {
+  display: flex;
+  gap: 6px;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  padding: 0 4%;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+.section .slider .content .thumb {
+  flex-shrink: 0;
+  width: 200px;
+}
+.section .slider .content .thumb img {
+  cursor: pointer;
+  max-width: 100%;
+  border-radius: 5px;
+  height: auto;
+}
+.section .slider .content .rank-thumb {
+  flex-shrink: 0;
+  width: 250px;
+  height: 175px;
+  display: flex;
+  align-items: flex-start;
+}
+.section .slider .content .rank-thumb > img {
+  max-width: 50%;
+}
+
+.footer {
+  max-width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.footer .social {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.footer .links {
+  color: grey;
+  margin-bottom: 10px;
+}
+.footer .links ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.footer .links ul li {
+  flex-basis: 25%;
+  margin-bottom: 16px;
+}
+.footer .code button {
+  display: inline-block;
+  color: grey;
+  border: 1px solid grey;
+  padding: 6.5px 10px 5px;
+  vertical-align: middle;
+  margin-bottom: 25px;
+}
+.footer .code button:hover {
+  color: white;
+}
+.footer .copyright {
+  color: grey;
+  font-size: 11px;
+  padding-bottom: 20px;
+}/*# sourceMappingURL=styles.css.map */
