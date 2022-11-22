@@ -682,6 +682,7 @@ body {
 }
 
 .backdrop {
+  // display: none;
   z-index: 4;
   position: fixed;
   left: 0;
@@ -692,6 +693,7 @@ body {
 }
 
 .modal {
+  // display: none;
   z-index: 5;
   position: absolute;
   top: 10%;
@@ -703,6 +705,18 @@ body {
   background-color: #181818;
   border-radius: 8px;
   overflow: hidden;
+
+  .modal-close {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    .close-button {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      border: none;
+    }
+  }
 
   .modal-hero {
     width: 40%;
@@ -829,6 +843,6 @@ body {
   }
 }
 
-body {
-  position: fixed;
+body.modal-open {
+  overflow: hidden;
 }
