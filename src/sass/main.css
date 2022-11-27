@@ -1,144 +1,7 @@
-html {
-  font-size: 10px;
-}
-
-body {
-  height: 200vh;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-  background-color: #141414;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.section .slider .content .thumb {
-  width: 16.66666667%;
-}
-
-.preview {
-  z-index: 3;
-  position: absolute;
-  width: 18.2%;
-  background-color: rgb(20, 20, 20);
-  border-radius: 5px;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.3s ease-out;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
-}
-.preview video {
-  max-width: 100%;
-}
-.preview .content {
-  padding: 10px 15px 15px;
-}
-.preview .controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.preview button {
-  width: 30px;
-  height: 30px;
-  padding: 6px;
-  color: white;
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #2a2a2a;
-}
-.preview button.expand {
-  margin-left: auto;
-}
-.preview button.play {
-  color: black;
-  background-color: white;
-}
-.preview .title {
-  font-size: 12px;
-}
-
-.navbar {
-  z-index: 2;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.35), transparent);
-  left: 0;
-  right: 0;
-  padding: 0 4% 0 2%;
-  transition: background-color 0.4s ease-in-out;
-}
-.navbar.opaque {
-  background-color: rgb(20, 20, 20);
-}
-.navbar .logo {
-  width: 150px;
-  height: 63px;
-  scale: 75%;
-  background-size: contain;
-  background-image: url("./img/Netflix_Logo_RGB.png");
-}
-.navbar .nav > ul {
-  display: flex;
-  list-style: none;
-}
-.navbar .nav li {
-  margin-left: 18px;
-}
-.navbar .controls {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-}
-.navbar .controls > div {
-  margin-right: 20px;
-}
-.navbar .controls > div:last-child {
-  margin-right: 0;
-}
-.navbar .controls .profile {
-  display: flex;
-  align-items: center;
-}
-.navbar .controls .profile .picture {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background-image: url("./img/profile-image.png");
-}
-.navbar .controls .profile .arrow {
-  margin-left: 10px;
-  border-width: 5px 5px 0;
-  border-style: solid;
-  border-color: #fff transparent;
-  width: 0;
-  height: 0;
-}
-.navbar .controls .profile .arrow:hover {
-  cursor: pointer;
-  rotate: 180deg;
-  transition: rotate 400ms ease-in-out;
-}
-
-.shade, .video {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
-.footer .code button, .hero .embed .reload button, .icon-button, .white-button, .preview button {
+/* 
+  Spacing
+ */
+.footer .code button, .hero .embed .reload button, .icon-button, .white-button {
   cursor: pointer;
   color: white;
   background: none;
@@ -180,6 +43,173 @@ body {
   background-color: #2a2a2a;
 }
 
+html {
+  /* 
+    Default font-size is 16px 
+    So 62.5% of 16px is 10px
+    In the rest of the document:
+    1 rem = 10px
+  */
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #fff;
+  background-color: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section .slider .content .thumb {
+  width: 16.66666667%;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+.section .title {
+  padding: 0 4%;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.section .slider {
+  position: relative;
+}
+.section .slider .roll-right, .section .slider .roll-left {
+  z-index: 1;
+  position: absolute;
+  width: 4%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.section .slider .roll-right:hover, .section .slider .roll-left:hover {
+  background-color: rgba(20, 20, 20, 0.7);
+}
+.section .slider .roll-right button, .section .slider .roll-left button {
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+.section .slider .roll-left {
+  left: 0;
+}
+.section .slider .roll-right {
+  right: 0;
+}
+.section .slider .content {
+  display: flex;
+  gap: 6px;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  padding: 0 4%;
+}
+.section .slider .content .thumb {
+  flex-shrink: 0;
+}
+.section .slider .content .thumb img {
+  cursor: pointer;
+  max-width: 100%;
+  border-radius: 5px;
+  height: auto;
+}
+.section .slider .content .rank-thumb {
+  flex-shrink: 0;
+  width: 250px;
+  height: 175px;
+  display: flex;
+  align-items: flex-start;
+}
+.section .slider .content .rank-thumb > img {
+  max-width: 50%;
+}
+
+.page {
+  padding: 0 6%;
+}
+
+.navbar {
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 0 4% 0 2%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.35), transparent);
+  transition: background-color 0.4s ease-in-out;
+}
+.navbar.opaque {
+  background-color: rgb(20, 20, 20);
+}
+.navbar .logo {
+  width: 150px;
+  height: 63px;
+  scale: 75%;
+  background-size: contain;
+  background-image: url("../img/Netflix_Logo_RGB.png");
+}
+.navbar .nav > ul {
+  display: flex;
+  list-style: none;
+}
+.navbar .nav li {
+  margin-left: 18px;
+}
+.navbar .controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.navbar .controls > div {
+  margin-right: 20px;
+}
+.navbar .controls > div:last-child {
+  margin-right: 0;
+}
+.navbar .controls .profile {
+  display: flex;
+  align-items: center;
+}
+.navbar .controls .profile .picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-image: url("../img/profile-image.png");
+}
+.navbar .controls .profile .arrow {
+  margin-left: 10px;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #fff transparent;
+  width: 0;
+  height: 0;
+}
+.navbar .controls .profile .arrow:hover {
+  cursor: pointer;
+  rotate: 180deg;
+  transition: rotate 400ms ease-in-out;
+}
+
+.video {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 .video video {
   width: 100%;
   height: 100%;
@@ -189,6 +219,11 @@ body {
 
 .shade {
   z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background: linear-gradient(rgba(20, 20, 20, 0.35) 50%, rgb(20, 20, 20));
 }
 
@@ -304,7 +339,7 @@ body {
   vertical-align: middle;
 }
 
-.wrapper .cast {
+.page .cast {
   width: 70%;
   margin: 0 auto 30px;
   display: grid;
@@ -316,187 +351,20 @@ body {
   text-transform: uppercase;
   align-items: center;
 }
-.wrapper .cast > div {
+.page .cast > div {
   padding: 0 10px;
   text-align: center;
 }
-.wrapper .cast svg {
+.page .cast svg {
   margin-bottom: 10px;
 }
-.wrapper .cast .left img {
+.page .cast .left img {
   margin-top: 10px;
   max-width: 70%;
 }
-.wrapper .cast .center {
+.page .cast .center {
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   border-right: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.daily-picks {
-  height: 20vh;
-  left: 0;
-  right: 0;
-  position: relative;
-  margin-bottom: 65px;
-}
-.daily-picks .section .slider .roll-right, .section .slider .daily-picks .roll-right, .daily-picks .section .slider .roll-left, .section .slider .daily-picks .roll-left, .daily-picks .roll-right, .daily-picks .roll-left {
-  z-index: 1;
-  position: absolute;
-  width: 4%;
-  height: 20vh;
-  margin: 2vw 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-.daily-picks .roll-right:hover, .daily-picks .roll-left:hover {
-  background-color: rgba(20, 20, 20, 0.7);
-}
-.daily-picks .section .slider .roll-right > button, .section .slider .daily-picks .roll-right > button, .daily-picks .section .slider .roll-left > button, .section .slider .daily-picks .roll-left > button, .daily-picks .roll-right > button, .daily-picks .roll-left > button {
-  cursor: pointer;
-  color: white;
-  background: none;
-  border: none;
-}
-.daily-picks .roll-left {
-  left: 0;
-}
-.daily-picks .roll-right {
-  right: 0;
-}
-.daily-picks .content {
-  width: 100%;
-  display: flex;
-  margin: -2.5vw 0;
-  padding: 2.5vw 4%;
-  scroll-behavior: smooth;
-  overflow: hidden;
-}
-.daily-picks .content .pick {
-  display: flex;
-  width: 20%;
-  height: 20vh;
-  margin-right: 20px;
-}
-.daily-picks .content .pick .thumb img {
-  height: 18vh;
-  border: 3px solid transparent;
-  border-radius: 7px;
-}
-.daily-picks .content .pick .thumb img:hover {
-  border: 3px solid white;
-  border-radius: 7px;
-  box-shadow: 0 0 2.5vw 1.04166667vw rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-}
-.daily-picks .content .pick .controls {
-  display: flex;
-  margin-top: 10px;
-}
-.daily-picks .content .pick .controls button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-.daily-picks .content .pick .controls button svg {
-  scale: 90%;
-}
-.daily-picks .content .pick .controls .play {
-  background-color: white;
-  color: black;
-}
-.daily-picks .content .pick .controls .play:hover {
-  background-color: rgba(255, 255, 255, 0.75);
-}
-.daily-picks .content .pick .controls .info {
-  margin-left: 10px;
-  background-color: transparent;
-  color: white;
-  border: 1.25px solid white;
-}
-.daily-picks .content .pick .controls .info:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.daily-picks .content .pick .left {
-  margin-right: 15px;
-}
-.daily-picks .content .pick .right {
-  display: flex;
-  flex-direction: column;
-  padding-top: 8px;
-}
-.daily-picks .content .pick .right .text {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.section {
-  margin-bottom: 40px;
-}
-.section .title {
-  padding: 0 4%;
-  margin-bottom: 15px;
-  font-size: 22px;
-  font-weight: 700;
-}
-.section .slider {
-  position: relative;
-}
-.section .slider .roll-right, .section .slider .roll-left {
-  z-index: 1;
-  position: absolute;
-  width: 4%;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-.section .slider .roll-right:hover, .section .slider .roll-left:hover {
-  background-color: rgba(20, 20, 20, 0.7);
-}
-.section .slider .roll-right button, .section .slider .roll-left button {
-  cursor: pointer;
-  color: white;
-  background: none;
-  border: none;
-}
-.section .slider .roll-left {
-  left: 0;
-}
-.section .slider .roll-right {
-  right: 0;
-}
-.section .slider .content {
-  display: flex;
-  gap: 6px;
-  scroll-behavior: smooth;
-  overflow: hidden;
-  padding: 0 4%;
-}
-.section .slider .content .thumb {
-  flex-shrink: 0;
-}
-.section .slider .content .thumb img {
-  cursor: pointer;
-  max-width: 100%;
-  border-radius: 5px;
-  height: auto;
-}
-.section .slider .content .rank-thumb {
-  flex-shrink: 0;
-  width: 250px;
-  height: 175px;
-  display: flex;
-  align-items: flex-start;
-}
-.section .slider .content .rank-thumb > img {
-  max-width: 50%;
 }
 
 .footer {
@@ -543,6 +411,7 @@ body {
 }
 
 .backdrop {
+  display: none;
   z-index: 4;
   position: fixed;
   left: 0;
@@ -553,6 +422,7 @@ body {
 }
 
 .modal {
+  display: none;
   z-index: 5;
   position: absolute;
   top: 10%;
@@ -680,4 +550,107 @@ body {
 
 body.modal-open {
   overflow: hidden;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+.daily-picks {
+  height: 20vh;
+  left: 0;
+  right: 0;
+  position: relative;
+  margin-bottom: 65px;
+}
+.daily-picks .roll-right, .daily-picks .roll-left {
+  z-index: 1;
+  position: absolute;
+  width: 4%;
+  height: 20vh;
+  margin: 2vw 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.daily-picks .roll-right:hover, .daily-picks .roll-left:hover {
+  background-color: rgba(20, 20, 20, 0.7);
+}
+.daily-picks .roll-right > button, .daily-picks .roll-left > button {
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+.daily-picks .roll-left {
+  left: 0;
+}
+.daily-picks .roll-right {
+  right: 0;
+}
+.daily-picks .content {
+  width: 100%;
+  display: flex;
+  margin: -2.5vw 0;
+  padding: 2.5vw 4%;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+.daily-picks .content .pick {
+  display: flex;
+  width: 20%;
+  height: 20vh;
+  margin-right: 20px;
+}
+.daily-picks .content .pick .thumb img {
+  height: 18vh;
+  border: 3px solid transparent;
+  border-radius: 7px;
+}
+.daily-picks .content .pick .thumb img:hover {
+  border: 3px solid white;
+  border-radius: 7px;
+  box-shadow: 0 0 2.5vw 1.04166667vw rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.daily-picks .content .pick .controls {
+  display: flex;
+  margin-top: 10px;
+}
+.daily-picks .content .pick .controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+.daily-picks .content .pick .controls button svg {
+  scale: 90%;
+}
+.daily-picks .content .pick .controls .play {
+  background-color: white;
+  color: black;
+}
+.daily-picks .content .pick .controls .play:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.daily-picks .content .pick .controls .info {
+  margin-left: 10px;
+  background-color: transparent;
+  color: white;
+  border: 1.25px solid white;
+}
+.daily-picks .content .pick .controls .info:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.daily-picks .content .pick .left {
+  margin-right: 15px;
+}
+.daily-picks .content .pick .right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+.daily-picks .content .pick .right .text {
+  font-size: 16px;
+  font-weight: 700;
+}/*# sourceMappingURL=main.css.map */

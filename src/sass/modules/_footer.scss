@@ -1,0 +1,57 @@
+@use "buttons" as *;
+
+.footer {
+  max-width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+  padding-top: 100px;
+  font-size: 13px;
+  font-weight: 300;
+
+  // background-color: gray;
+
+  .social {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+
+  .links {
+    color: grey;
+    margin-bottom: 10px;
+
+    ul {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+
+      li {
+        flex-basis: 25%;
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .code {
+    button {
+      @extend %reset-button;
+      display: inline-block;
+      // line-height: 13px;
+      color: grey;
+      border: 1px solid grey;
+      padding: 6.5px 10px 5px;
+      vertical-align: middle;
+      margin-bottom: 25px;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .copyright {
+    color: grey;
+    font-size: 11px;
+    padding-bottom: 20px;
+  }
+}

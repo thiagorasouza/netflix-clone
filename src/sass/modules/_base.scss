@@ -1,0 +1,23 @@
+html {
+  /* 
+    Default font-size is 16px 
+    So 62.5% of 16px is 10px
+    In the rest of the document:
+    1 rem = 10px
+  */
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #fff;
+  background-color: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

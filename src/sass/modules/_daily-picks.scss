@@ -1,0 +1,134 @@
+.daily-picks {
+  // display: flex;
+  // justify-content: space-between;
+  // z-index: 3;
+  height: 20vh;
+  // background-color: #ccc;
+  left: 0;
+  right: 0;
+  position: relative;
+  margin-bottom: 65px;
+
+  %roll-control {
+    z-index: 1;
+    position: absolute;
+    width: 4%;
+    height: 20vh;
+    margin: 2vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    // background-color: rgba(20, 20, 20, 0.7);
+    &:hover {
+      background-color: rgba(20, 20, 20, 0.7);
+    }
+    > button {
+      cursor: pointer;
+      color: white;
+      background: none;
+      border: none;
+    }
+  }
+
+  .roll-left {
+    @extend %roll-control;
+    left: 0;
+    // margin-left: -4%;
+  }
+
+  .roll-right {
+    @extend %roll-control;
+    right: 0;
+    // margin-right: -4%;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    margin: -2.5vw 0;
+    padding: 2.5vw 4%;
+    scroll-behavior: smooth;
+    overflow: hidden;
+
+    .pick {
+      display: flex;
+      width: 20%;
+      height: 20vh;
+      margin-right: 20px;
+      // background-color: #fff;
+
+      .thumb {
+        img {
+          height: 18vh;
+          border: 3px solid transparent;
+          border-radius: 7px;
+
+          &:hover {
+            border: 3px solid white;
+            border-radius: 7px;
+            box-shadow: 0 0 2.5vw 1.04166667vw rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .controls {
+        display: flex;
+        margin-top: 10px;
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // width: 40px;
+          // height: 40px;
+          padding: 9px;
+          border-radius: 50%;
+          border: none;
+
+          cursor: pointer;
+
+          svg {
+            scale: 90%;
+          }
+        }
+
+        .play {
+          background-color: white;
+          color: black;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.75);
+          }
+        }
+
+        .info {
+          margin-left: 10px;
+          background-color: transparent;
+          color: white;
+          border: 1.25px solid white;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+
+      .left {
+        margin-right: 15px;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        padding-top: 8px;
+
+        .text {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
