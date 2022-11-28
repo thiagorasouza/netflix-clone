@@ -1,16 +1,13 @@
-/* 
-  Spacing
- */
-.footer .code button, .hero .embed .reload button, .icon-button, .white-button {
+.btn, .preview button, .footer .code button, .hero .embed .reload button, .btn-hero, .icon-button, .white-button {
   cursor: pointer;
-  color: white;
   background: none;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .white-button {
-  display: flex;
-  align-items: center;
   padding: 0.7em 2em;
   border-radius: 5px;
   font-weight: 700;
@@ -31,16 +28,40 @@
 }
 
 .icon-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 42px;
   height: 42px;
   padding: 3%;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-  color: white;
   background-color: #2a2a2a;
+}
+
+.btn-hero {
+  padding: 0.7em 2em;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.btn-hero > svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.btn-white {
+  color: black;
+  background-color: white;
+}
+.btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-gray {
+  color: white;
+  background-color: rgba(109, 109, 110, 0.7);
+}
+.btn-gray:hover {
+  background-color: rgba(109, 109, 110, 0.4);
 }
 
 html {
@@ -51,10 +72,6 @@ html {
     1 rem = 10px
   */
   font-size: 62.5%;
-}
-
-body {
-  font-size: 1.4rem;
   font-weight: 400;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #fff;
@@ -77,7 +94,7 @@ body {
 .section .title {
   padding: 0 4%;
   margin-bottom: 15px;
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: 700;
 }
 .section .slider {
@@ -159,6 +176,9 @@ body {
   scale: 75%;
   background-size: contain;
   background-image: url("../img/Netflix_Logo_RGB.png");
+}
+.navbar .nav {
+  font-size: 1.4rem;
 }
 .navbar .nav > ul {
   display: flex;
@@ -251,6 +271,7 @@ body {
 .hero .ranking {
   display: flex;
   align-items: center;
+  font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -258,7 +279,7 @@ body {
   margin-right: 10px;
 }
 .hero .synopsis {
-  font-size: 18px;
+  font-size: 1.8rem;
   margin-bottom: 20px;
   transition: all 1.3s ease-in-out;
 }
@@ -274,36 +295,7 @@ body {
 .hero .controls {
   z-index: 1;
   display: flex;
-}
-.hero .controls > button {
-  display: flex;
-  align-items: center;
-  padding: 0.7em 2em;
-  border: none;
-  border-radius: 5px;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 18px;
-}
-.hero .controls > button.play {
-  color: black;
-  background-color: white;
-}
-.hero .controls > button.play:hover {
-  background-color: rgba(255, 255, 255, 0.75);
-}
-.hero .controls > button.info {
-  margin-left: 15px;
-  color: white;
-  background-color: rgba(109, 109, 110, 0.7);
-}
-.hero .controls > button.info:hover {
-  background-color: rgba(109, 109, 110, 0.4);
-}
-.hero .controls > button > svg {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
+  gap: 15px;
 }
 .hero .embed {
   z-index: 1;
@@ -346,8 +338,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   min-height: 15vh;
+  font-size: 1.5rem;
   font-weight: 700;
-  font-size: 15px;
   text-transform: uppercase;
   align-items: center;
 }
@@ -372,7 +364,7 @@ body {
   height: 300px;
   margin: 0 auto;
   padding-top: 100px;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 300;
 }
 .footer .social {
@@ -406,7 +398,7 @@ body {
 }
 .footer .copyright {
   color: grey;
-  font-size: 11px;
+  font-size: 1.1rem;
   padding-bottom: 20px;
 }
 
@@ -552,6 +544,51 @@ body.modal-open {
   overflow: hidden;
 }
 
+.preview {
+  z-index: 3;
+  position: absolute;
+  width: 18.2%;
+  background-color: rgb(20, 20, 20);
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+}
+.preview video {
+  max-width: 100%;
+}
+.preview .content {
+  padding: 10px 15px 15px;
+}
+.preview .controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.preview button {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a2a2a;
+}
+.preview button.expand {
+  margin-left: auto;
+}
+.preview button.play {
+  color: black;
+  background-color: white;
+}
+.preview .title {
+  font-size: 12px;
+}
+
 .daily-picks {
   height: 20vh;
   left: 0;
@@ -651,6 +688,6 @@ body.modal-open {
   padding-top: 8px;
 }
 .daily-picks .content .pick .right .text {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

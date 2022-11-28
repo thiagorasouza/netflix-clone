@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 html {
   /* 
     Default font-size is 16px 
@@ -5,11 +7,7 @@ html {
     In the rest of the document:
     1 rem = 10px
   */
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.4rem;
+  font-size: calc(($html-font-size / 16px) * 100%);
   font-weight: 400;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #fff;

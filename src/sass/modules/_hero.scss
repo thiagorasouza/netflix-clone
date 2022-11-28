@@ -1,3 +1,4 @@
+@use "variables" as *;
 @use "buttons" as *;
 
 @mixin hero-background {
@@ -50,6 +51,7 @@
   .ranking {
     display: flex;
     align-items: center;
+    font-size: $ranking-font-size;
     font-weight: 700;
     margin-bottom: 20px;
 
@@ -59,7 +61,7 @@
   }
 
   .synopsis {
-    font-size: 18px;
+    font-size: $synopsis-font-size;
     margin-bottom: 20px;
     transition: all 1.3s ease-in-out;
 
@@ -78,42 +80,7 @@
   .controls {
     z-index: 1;
     display: flex;
-
-    > button {
-      display: flex;
-      align-items: center;
-      padding: 0.7em 2em;
-      border: none;
-      border-radius: 5px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 18px;
-
-      &.play {
-        color: black;
-        background-color: white;
-
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.75);
-        }
-      }
-
-      &.info {
-        margin-left: 15px;
-        color: white;
-        background-color: rgba(109, 109, 110, 0.7);
-
-        &:hover {
-          background-color: rgba(109, 109, 110, 0.4);
-        }
-      }
-
-      > svg {
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-      }
-    }
+    gap: 15px;
   }
 
   .embed {
@@ -128,7 +95,7 @@
     align-items: flex-start;
 
     .reload button {
-      @extend %reset-button;
+      @extend .btn;
       width: 40px;
       height: 40px;
       border: 1px solid rgba(255, 255, 255, 0.7);
@@ -166,8 +133,8 @@
   justify-content: center;
   // background-color: gray;
   min-height: 15vh;
-  font-weight: 700;
-  font-size: 15px;
+  font-size: $cast-font-size;
+  font-weight: $cast-font-weight;
   text-transform: uppercase;
   align-items: center;
   // gap: 20px;

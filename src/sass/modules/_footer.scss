@@ -1,3 +1,4 @@
+@use "variables" as *;
 @use "buttons" as *;
 
 .footer {
@@ -5,8 +6,8 @@
   height: 300px;
   margin: 0 auto;
   padding-top: 100px;
-  font-size: 13px;
-  font-weight: 300;
+  font-size: $footer-font-size;
+  font-weight: $footer-font-weight;
 
   // background-color: gray;
 
@@ -34,7 +35,7 @@
 
   .code {
     button {
-      @extend %reset-button;
+      @extend .btn;
       display: inline-block;
       // line-height: 13px;
       color: grey;
@@ -51,7 +52,7 @@
 
   .copyright {
     color: grey;
-    font-size: 11px;
+    font-size: $copyright-font-size;
     padding-bottom: 20px;
   }
 }

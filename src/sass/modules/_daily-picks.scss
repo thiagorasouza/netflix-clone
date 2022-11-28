@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .daily-picks {
   // display: flex;
   // justify-content: space-between;
@@ -125,8 +127,8 @@
         padding-top: 8px;
 
         .text {
-          font-size: 16px;
-          font-weight: 700;
+          font-size: $daily-picks-font-size;
+          font-weight: $daily-picks-font-weight;
         }
       }
     }

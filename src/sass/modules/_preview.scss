@@ -1,0 +1,60 @@
+@use "buttons" as *;
+
+.preview {
+  // @extend %thumb-dimensions;
+
+  z-index: 3;
+  position: absolute;
+  // top: 100vh;
+  // left: 0;
+  width: 18.2%;
+  background-color: rgb(20, 20, 20);
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+
+  video {
+    max-width: 100%;
+  }
+
+  .content {
+    padding: 10px 15px 15px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    @extend .btn;
+
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    // font-size: 10px;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2a;
+
+    &.expand {
+      margin-left: auto;
+    }
+
+    &.play {
+      color: black;
+      background-color: white;
+    }
+  }
+
+  .title {
+    font-size: 12px;
+  }
+}
