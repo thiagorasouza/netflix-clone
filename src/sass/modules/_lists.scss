@@ -1,0 +1,61 @@
+@use "variables" as *;
+@use "utils" as *;
+
+.lists {
+  @include for-phone-only {
+    padding-top: 10vh;
+  }
+}
+
+.section {
+  margin-bottom: 4.5rem;
+}
+
+.section-title {
+  padding: 0 $page-padding;
+  margin-bottom: 15px;
+  font-size: $section-title-font-size;
+  font-weight: $section-title-font-weight;
+
+  @include for-phone-only {
+    font-size: 19px;
+    color: #999;
+  }
+}
+
+.section-slider {
+  position: relative;
+}
+
+.section-slider-content {
+  display: flex;
+  gap: 0.6rem;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  padding: 0 $page-padding;
+}
+
+.section-slider-thumb {
+  @include responsive-thumb-dimensions;
+  flex-shrink: 0;
+
+  > img {
+    cursor: pointer;
+    max-width: 100%;
+    border-radius: 5px;
+    height: auto;
+  }
+}
+
+.section-slider-rank {
+  @include responsive-thumb-dimensions;
+  aspect-ratio: 10 / 7;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  > img {
+    max-width: 50%;
+  }
+}

@@ -1,17 +1,28 @@
 @use "variables" as *;
+@use "utils" as *;
 
 html {
-  /* 
-    Default font-size is 16px 
-    So 62.5% of 16px is 10px
-    In the rest of the document:
-    1 rem = 10px
-  */
-  font-size: calc(($html-font-size / 16px) * 100%);
-  font-weight: 400;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  color: #fff;
-  background-color: #141414;
+  font-size: $base-font-size;
+  font-weight: $normal;
+  font-family: $base-font-family;
+  color: $white;
+  background-color: $black;
+
+  @include for-phone-only {
+    font-size: 1.5vw;
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: 1vw;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: 0.85vw;
+  }
+
+  @include for-desktop-up {
+    font-size: 0.75vw;
+  }
 }
 
 * {

@@ -1,58 +1,101 @@
 @use "variables" as *;
 @use "buttons" as *;
+@use "utils" as *;
 
-.footer {
-  max-width: 1000px;
-  height: 300px;
+.footer,
+.footer-mobile {
+  max-width: 100rem;
+  height: 30rem;
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 10rem $page-padding 0;
   font-size: $footer-font-size;
   font-weight: $footer-font-weight;
 
-  // background-color: gray;
+  a {
+    all: unset;
+    cursor: pointer;
+  }
+}
 
-  .social {
+.footer {
+  display: none;
+
+  @include for-tablet-portrait-up {
+    display: block;
+  }
+}
+
+.footer-mobile {
+  @include for-tablet-portrait-up {
+    display: none;
+  }
+}
+
+.footer-social {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-links,
+.footer-links-mobile {
+  color: grey;
+  margin-bottom: 1rem;
+
+  ul {
     display: flex;
-    gap: 25px;
-    margin-bottom: 20px;
+    list-style: none;
+    flex-wrap: wrap;
   }
 
-  .links {
-    color: grey;
-    margin-bottom: 10px;
-
-    ul {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-
-      li {
-        flex-basis: 25%;
-        margin-bottom: 16px;
-      }
-    }
+  li {
+    margin-bottom: 1.6rem;
   }
 
-  .code {
-    button {
-      @extend .btn;
-      display: inline-block;
-      // line-height: 13px;
-      color: grey;
-      border: 1px solid grey;
-      padding: 6.5px 10px 5px;
-      vertical-align: middle;
-      margin-bottom: 25px;
+  a:hover {
+    text-decoration: underline;
+  }
+}
 
-      &:hover {
-        color: white;
-      }
-    }
+.footer-links {
+  li {
+    flex-basis: 25%;
+  }
+}
+
+.footer-links-mobile {
+  font-size: 14px;
+
+  ul {
+    gap: 15px;
   }
 
-  .copyright {
-    color: grey;
-    font-size: $copyright-font-size;
-    padding-bottom: 20px;
+  li {
+    margin-bottom: 0;
   }
+}
+
+.footer-service-code {
+  margin-bottom: 2.5rem;
+}
+
+.btn-service-code {
+  @include btn-base;
+  font-size: 1.2rem;
+
+  display: inline-block;
+  color: grey;
+  border: 1px solid grey;
+  padding: 0.65rem 1rem 0.5rem;
+  vertical-align: middle;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.footer-copyright {
+  color: grey;
+  font-size: $copyright-font-size;
+  padding-bottom: 2rem;
 }

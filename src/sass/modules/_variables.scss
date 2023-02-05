@@ -1,24 +1,43 @@
+@use "utils" as *;
+
 // ===============
 // === SPACING ===
 // ===============
 
 // Left and right padding for the page wrapper
-$page-padding: 6%;
+$page-padding: 4%;
 
-// ===============
+// ==============
+// === COLORS ===
+// ==============
+
+$white: #fff;
+$black: #141414;
+
+// Colors
+$nav-link: #e5e5e5;
+$nav-hover: #b3b3b3;
+$nav-active: #ffffff;
+
+// ==================
 // === TYPOGRAPHY ===
-// ===============
+// ==================
 
-// Base font-size in pixels
-$html-font-size: 10px;
+// BASE
+$base-font-size: 62.5%; // 10px
+$base-font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$base-font-color: #fff;
 
 // The rest of the font-sizes should be in REM unit
-$nav-font-size: 1.4rem;
-$ranking-font-size: 1.4rem;
-$synopsis-font-size: 1.8rem;
+$nav-font-size: 1.25rem;
 
-$btn-hero-font-size: 1.8rem;
-$btn-hero-font-weight: 700;
+$ranking-font-size: 1.6rem;
+$ranking-font-weight: 700;
+
+$synopsis-font-size: 1.55rem;
+
+$btn-font-size: 1.6rem;
+$btn-font-weight: 700;
 
 $cast-font-size: 1.5rem;
 $cast-font-weight: 700;
@@ -26,10 +45,14 @@ $cast-font-weight: 700;
 $daily-picks-font-size: 1.6rem;
 $daily-picks-font-weight: 700;
 
-$section-title-font-size: 2.2rem;
+$section-title-font-size: 1.8rem;
 $section-title-font-weight: 700;
 
-$footer-font-size: 1.3rem;
+$footer-font-size: 1.2rem;
 $footer-font-weight: 300;
 
 $copyright-font-size: 1.1rem;
+
+// BOLDNESS
+$normal: 400;
+$bold: 700;

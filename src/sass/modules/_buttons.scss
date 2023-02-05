@@ -1,6 +1,7 @@
 @use "variables" as *;
+@use "utils" as *;
 
-.btn {
+@mixin btn-base {
   cursor: pointer;
   background: none;
   border: none;
@@ -9,56 +10,70 @@
   justify-content: center;
 }
 
-%text-icon-button {
-  @extend .btn;
-  padding: 0.7em 2em;
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: 18px;
-  // vertical-align: middle;
-
-  > svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-}
-
-.white-button {
-  @extend %text-icon-button;
-  color: black;
-  background-color: white;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.75);
-  }
-}
-
-.icon-button {
-  @extend .btn;
-  width: 42px;
-  height: 42px;
+.btn-icon {
+  @include btn-base;
+  width: 3.8rem;
+  height: 3.8rem;
   padding: 3%;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   background-color: #2a2a2a;
-}
-
-.btn-hero {
-  @extend .btn;
-  padding: 0.7em 2em;
-  font-size: $btn-hero-font-size;
-  font-weight: $btn-hero-font-weight;
-  border-radius: 5px;
 
   > svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
+    width: 1.9rem;
+    height: 1.9rem;
   }
 }
 
-.btn-white {
+.btn-icon-white {
+  @extend .btn-icon;
+
+  color: black;
+  border: none;
+  background-color: white;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.btn-icon-gray {
+  @extend .btn-icon;
+
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  background-color: #2a2a2a;
+}
+
+.btn-icon-transparent {
+  @extend .btn-icon;
+
+  color: white;
+  border: 1.25px solid white;
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+%btn-text {
+  @include btn-base;
+  padding: 0.6em 1.6em;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  border-radius: 5px;
+
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.btn-text-white {
+  @extend %btn-text;
+
   color: black;
   background-color: white;
 
@@ -67,11 +82,57 @@
   }
 }
 
-.btn-gray {
+.btn-text-gray {
+  @extend %btn-text;
+
   color: white;
   background-color: rgba(109, 109, 110, 0.7);
 
   &:hover {
     background-color: rgba(109, 109, 110, 0.4);
+  }
+}
+
+%roll-control {
+  @include flex-center;
+  opacity: 0;
+
+  z-index: 1;
+  position: absolute;
+  width: $page-padding;
+  height: 100%;
+  background-color: transparent;
+
+  &:hover {
+    opacity: 1;
+
+    background-color: rgba(20, 20, 20, 0.7);
+  }
+}
+
+.roll-left {
+  @extend %roll-control;
+  left: 0;
+}
+
+.roll-right {
+  @extend %roll-control;
+  right: 0;
+}
+
+.btn-roll {
+  @include btn-base;
+  width: 100%;
+  color: white;
+  // background-color: red;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    transition: transform 0.15s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .backdrop {
   display: none;
   z-index: 4;
@@ -41,7 +43,7 @@
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 30px;
-    padding: 4%;
+    padding: $page-padding;
     height: 500px;
 
     .title img {
@@ -109,7 +111,7 @@
   }
 
   .modal-content {
-    padding: 0 4% 4%;
+    padding: 0 $page-padding $page-padding;
 
     .details {
       display: flex;
