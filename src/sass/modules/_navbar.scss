@@ -20,10 +20,18 @@
     background-color: rgb(20, 20, 20);
   }
 
-  @include for-phone-only {
-    padding: 0 $page-padding;
+  @include for-tablet-portrait-up {
     padding-top: 10px;
     padding-bottom: 10px;
+  }
+
+  @include for-tablet-landscape-up {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include for-phone-only {
+    padding: 10px $page-padding;
   }
 }
 
@@ -168,12 +176,6 @@
     // padding: 1rem;
     // align-self: stretch;
     width: 0;
-
-    &:hover {
-      cursor: pointer;
-      rotate: 180deg;
-      transition: rotate 400ms ease-in-out;
-    }
   }
 
   .profile {
@@ -189,6 +191,12 @@
 
     &:hover {
       cursor: pointer;
+
+      .arrow {
+        cursor: pointer;
+        rotate: 180deg;
+        transition: rotate 400ms ease-in-out;
+      }
     }
   }
 }

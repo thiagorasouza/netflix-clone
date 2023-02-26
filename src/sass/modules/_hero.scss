@@ -24,7 +24,7 @@
 }
 
 .hero-content {
-  width: 40%;
+  width: 35%;
   padding-left: $page-padding;
   height: 70vh;
   display: flex;
@@ -132,9 +132,9 @@
 }
 
 .hero-banner {
-  width: 70%;
+  max-width: 70%;
   min-height: 15vh;
-  margin: 0 auto 3rem;
+  margin: 3rem auto 4rem;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -142,6 +142,7 @@
   font-size: $cast-font-size;
   font-weight: $cast-font-weight;
   text-transform: uppercase;
+  line-height: 1.25;
 
   > div {
     padding: 0 10px;

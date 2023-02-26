@@ -1,3 +1,8 @@
+/* 
+  ==============
+  === NAVBAR === 
+  ==============
+*/
 const navbar = document.querySelector(".navbar");
 document.addEventListener("scroll", () => {
   const position = window.scrollY;
@@ -8,6 +13,11 @@ document.addEventListener("scroll", () => {
   }
 });
 
+/* 
+  ============
+  === HERO === 
+  ============
+*/
 const img = document.querySelector(".hero-title img");
 const ranking = document.querySelector(".hero-ranking");
 const synopsis = document.querySelector(".hero-synopsis");
@@ -24,6 +34,18 @@ video.addEventListener("ended", (e) => {
   synopsis.classList.remove("transform");
 });
 
+const reload = document.querySelector(".btn-hero-reload");
+reload.addEventListener("click", () => {
+  if (video.ended) {
+    video.play();
+  }
+});
+
+/* 
+  ======================
+  === THUMBS PREVIEW === 
+  ======================
+*/
 const thumbs = document.querySelectorAll(".section-slider-thumb");
 thumbs.forEach((thumb) => {
   let preview = {};
@@ -116,12 +138,12 @@ thumbs.forEach((thumb) => {
         `;
 
   thumb.addEventListener("mouseenter", () => {
-    // console.log("Mouse enter");
+    //
     timeout = setTimeout(() => createPreview(), 300);
   });
 
   thumb.addEventListener("mouseleave", () => {
-    // console.log("Mouse enter");
+    //
     clearTimeout(timeout);
   });
 
@@ -133,25 +155,23 @@ thumbs.forEach((thumb) => {
 
   function createPreview() {
     const thumbRect = thumb.getBoundingClientRect();
-    console.log("🚀 ~ thumbRect", thumbRect);
 
-    console.dir(thumb.previousElementSibling);
+    // console.dir(thumb.previousElementSibling);
     const isFirst =
       !thumb.previousElementSibling ||
       thumb.previousElementSibling.getBoundingClientRect().x < 0;
-    console.log("🚀 ~ isFirst", !!isFirst);
 
     const isLast =
       !thumb.nextElementSibling ||
       thumb.nextElementSibling.getBoundingClientRect().x + thumbRect.width >
         window.innerWidth;
-    console.log("🚀 ~ isLast", !!isLast);
 
     if (isFirst) {
       preview.style.transformOrigin = "center left";
     } else if (isLast) {
-      console.log("To the right");
       preview.style.transformOrigin = "center right";
+    } else {
+      preview.style.transformOrigin = "center center";
     }
 
     if (isLast) {
@@ -162,8 +182,17 @@ thumbs.forEach((thumb) => {
       preview.style.left = `${thumbRect.left}px`;
     }
 
+    preview.style.width = `${thumbRect.width}px`;
     preview.style.top = `${window.scrollY + thumbRect.top}px`;
-    document.body.append(preview);
+
+    const lastPreview = document.body.querySelector(".preview");
+
+    if (lastPreview) {
+      document.body.removeChild(lastPreview);
+    }
+
+    document.body.appendChild(preview);
+
     setTimeout(() => {
       preview.style.transform = "scale(1.4)";
       preview.style.opacity = "1";
@@ -172,18 +201,15 @@ thumbs.forEach((thumb) => {
   }
 });
 
-const backdrop = document.querySelector(".backdrop");
-const modal = document.querySelector(".modal");
-const expandButtons = document.querySelectorAll(".expand");
-expandButtons.forEach((button) => {
-  console.log("Expand button");
-});
+// const backdrop = document.querySelector(".backdrop");
+// const modal = document.querySelector(".modal");
+// const expandButtons = document.querySelectorAll(".expand");
+// expandButtons.forEach((button) => {});
 
-const profile = document.querySelector(".profile");
+// const profile = document.querySelector(".profile");
 
-const closeModal = document.querySelector(".close-button");
-closeModal.addEventListener("click", () => {
-  console.log("Close modal");
-  modal.style.display = "none";
-  backdrop.style.display = "none";
-});
+// const closeModal = document.querySelector(".close-button");
+// closeModal.addEventListener("click", () => {
+//   modal.style.display = "none";
+//   backdrop.style.display = "none";
+// });
