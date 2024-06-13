@@ -12,7 +12,7 @@ A pretty accurate Netflix's frontpage clone, implementing most of the details an
 
 ## :link: Links
 
-- :earth_africa: Live: <https://netflix-clone-thiago.netlify.app/>
+- :earth_africa: Live: <https://nt-flix-clone.netlify.app/>
 - :card_file_box: Repo: [@thiagorasouza/netflix-clone](https://github.com/thiagorasouza/netflix-clone)
 
 ## :computer: Screenshots
